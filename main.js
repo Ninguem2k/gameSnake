@@ -30,8 +30,8 @@ function mapGenerate() {
         for (let col = 0; col < mapCol / 10; col++) {
             const div = document.createElement("div");
             div.className = "square";
-            div.setAttribute("position-row", lin);
-            div.setAttribute("position-col", col);
+            div.setAttribute("data-position-row", lin);
+            div.setAttribute("data-position-col", col);
             map.appendChild(div);
         }
     }
@@ -42,7 +42,7 @@ window.addEventListener(
     event => {
         switch (event.code) {
             case "KeyD":
-                if (playerPosition[1] < mapCol) {
+                if (playerPosition[1] < mapCol / 10 - 1) {
                     oldPositionPlayer = postionPlayerSquare();
                     playerPosition[1] = playerPosition[1] + 1;
                     newPositionPlayer = postionPlayerSquare();
@@ -66,7 +66,7 @@ window.addEventListener(
                 }
                 break;
             case "KeyS":
-                if (playerPosition[0] < mapRow) {
+                if (playerPosition[0] < mapRow / 10 - 1) {
                     oldPositionPlayer = postionPlayerSquare();
                     playerPosition[0] = playerPosition[0] + 1;
                     newPositionPlayer = postionPlayerSquare();
@@ -88,7 +88,6 @@ function postionPlayerSquare() {
         var square = squares[index];
         var squareRow = square.dataset.positionRow;
         var squareCol = square.dataset.positionCol;
-
         if (squareRow == playerPosition[0] && squareCol == playerPosition[1]) {
             var positionPlayer = index;
             break;
