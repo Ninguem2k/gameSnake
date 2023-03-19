@@ -42,7 +42,7 @@ window.addEventListener(
     event => {
         switch (event.code) {
             case "KeyD":
-                if (playerPosition[1] < mapLinCol[0]) {
+                if (playerPosition[1] < mapCol) {
                     oldPositionPlayer = postionPlayerSquare();
                     playerPosition[1] = playerPosition[1] + 1;
                     newPositionPlayer = postionPlayerSquare();
@@ -66,7 +66,7 @@ window.addEventListener(
                 }
                 break;
             case "KeyS":
-                if (playerPosition[0] < mapLinCol[1]) {
+                if (playerPosition[0] < mapRow) {
                     oldPositionPlayer = postionPlayerSquare();
                     playerPosition[0] = playerPosition[0] + 1;
                     newPositionPlayer = postionPlayerSquare();
